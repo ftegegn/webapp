@@ -23,7 +23,7 @@ pipeline {
       steps {
          sshagent(['tomcat']) {
             //sh 'scp -o StrictHostKeyChecking=no target/*.war bits@10.1.0.23:/prod/apache-tomcat-9.0.93/webapps/webapp.war'
-             sh 'ssh bits@10.1.0.23'
+             sh 'ssh bits@196.188.53.87'
         } 
       }
     }
