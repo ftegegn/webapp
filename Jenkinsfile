@@ -57,7 +57,7 @@ pipeline {
     stage ('DAST') {
       steps {
         sshagent(['zap']) {
-         sh 'sshpass -p "B1tspr6" ssh -o StrictHostKeyChecking=no bitsapsprd@10.1.0.17 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://10.1.0.23:8080/webapp/" || true'
+         sh 'sshpass -p "B1tspr6" ssh -o StrictHostKeyChecking=no bitsapsprd@10.1.0.17 "docker run -t zaproxy/zap-stable zap-baseline.py -t http://10.1.0.23:8080/webapp/" || true'
         }
       }
     }
