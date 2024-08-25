@@ -15,11 +15,11 @@ pipeline {
 
     stage ('Source Composition Analysis') {
       steps {
-         sh 'rm test* || true'
-         sh 'wget https://github.com/ftegegn/webapp/blob/master/test.sh'
-         sh 'chmod +x test.sh'
-         sh 'bash test.sh'
-         //sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+         sh 'rm owasp || true'
+         sh 'wget --no-check-certificate --content-disposition https://raw.githubusercontent.com/ftegegn/webapp/master/owasp-dependency-check.sh'
+         sh 'chmod +x owasp-dependency-check.sh'
+         sh 'bash owasp-dependency-check.sh'
+         sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
       }
     }
 
