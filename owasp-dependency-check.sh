@@ -28,11 +28,11 @@ docker run --rm \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --volume $(pwd):/src:z \
     --volume "$DATA_DIRECTORY":/usr/share/dependency-check/data:z \
-    --volume $(pwd)/odc-reports:/reports:z \
+    --volume "$REPORT":/reports:z \
     owasp/dependency-check:$DC_VERSION \
     --scan /src \
     --format "ALL" \
     --project "$DC_PROJECT" \
-    --out "$REPORT"
+    --out /reports
     # Use suppression like this: (where /src == $pwd)
     # --suppression "/src/security/dependency-check-suppression.xml"
