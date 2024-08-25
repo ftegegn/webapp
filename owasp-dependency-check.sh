@@ -8,7 +8,7 @@ CACHE_DIRECTORY="$DC_DIRECTORY/data/cache"
 
 if [ ! -d "$DATA_DIRECTORY" ]; then
     echo "Initially creating persistent directory: $DATA_DIRECTORY"
-    mkdir -p "$DATA_DIRECTORY"
+    mkdir -p "$DATA_DIRECTORY/reports"
 fi
 if [ ! -d "$CACHE_DIRECTORY" ]; then
     echo "Initially creating persistent directory: $CACHE_DIRECTORY"
@@ -28,6 +28,6 @@ docker run --rm \
     --scan /src \
     --format "ALL" \
     --project "$DC_PROJECT" \
-    --out /reports
+    --out "$DC_DIRECTORY/reports"
     # Use suppression like this: (where /src == $pwd)
     # --suppression "/src/security/dependency-check-suppression.xml"
